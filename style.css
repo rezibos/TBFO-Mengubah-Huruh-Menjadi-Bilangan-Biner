@@ -13,7 +13,7 @@ body {
 
 .logo-header {
     position: absolute;
-    top: 30px;
+    top: 28px;
     left: 20px;
     z-index: 100;
 }
@@ -1033,4 +1033,188 @@ td:last-child {
 .empty-page p {
     font-size: 1rem;
     color: #94a3b8;
+}
+
+/* Team Member Styles - Full Card dengan Overlay Effect */
+.team-row-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-row-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Full Card Member */
+.team-member-full {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.team-member-full:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Border khusus untuk leader */
+.team-member-full.leader {
+    border: 3px solid #3b82f6;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.team-member-full.leader:hover {
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+}
+
+/* Foto Full Card */
+.team-member-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.team-member-full .photo-main {
+    opacity: 1;
+    z-index: 1;
+}
+
+.team-member-full .photo-hover {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Saat Hover - Ganti Foto */
+.team-member-full:hover .photo-main {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.team-member-full:hover .photo-hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Overlay Info - Muncul saat Hover */
+.member-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
+    padding: 30px 20px 20px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 10;
+}
+
+.team-member-full:hover .member-overlay {
+    transform: translateY(0);
+}
+
+/* Info Text */
+.member-info {
+    text-align: center;
+    color: white;
+}
+
+.member-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.member-nim {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #93c5fd;
+    margin: 0 0 10px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.member-role {
+    display: inline-block;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Badge Ketua */
+.leader-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-row-top {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    
+    .team-row-bottom {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .team-member-full {
+        height: 450px;
+    }
+
+    .member-info h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member-full {
+        height: 400px;
+    }
+
+    .member-overlay {
+        padding: 20px 15px 15px;
+    }
+
+    .member-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .member-nim {
+        font-size: 0.9rem;
+    }
 }
