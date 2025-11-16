@@ -18,6 +18,143 @@ navItems.forEach(item => {
     });
 });
 
+// ==================== NAVIGATION ====================
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const pages = document.querySelectorAll('.page-content');
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const targetPage = this.getAttribute('data-page');
+            
+            // Remove active class from all nav items and pages
+            navItems.forEach(nav => nav.classList.remove('active'));
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Add active class to clicked nav item and corresponding page
+            this.classList.add('active');
+            document.getElementById(`page-${targetPage}`).classList.add('active');
+        });
+    });
+    
+    // Initialize modal controls
+    setupModalControls();
+});
+
+// ==================== DIAGRAM & VIDEO ====================
+let currentZoom = 1;
+
+// Data diagram dan video
+const diagrams = {
+    diagram1: {
+        src: 'asset/mesin-turing/mesin-otomata.png',
+        alt: 'Diagram State Mesin Turing untuk Konversi Huruf ke Biner'
+    }
+};
+
+const videos = {
+    video1: {
+        src: 'asset/video-mesin-turing/video.mkv',
+        title: 'Penjelasan Lengkap Mesin Turing'
+    }
+};
+
+function viewDiagram(diagramId) {
+    const diagram = diagrams[diagramId];
+    if (!diagram) return;
+    
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    modalImg.src = diagram.src;
+    modalImg.alt = diagram.alt;
+    currentZoom = 1;
+    modalImg.style.transform = `scale(${currentZoom})`;
+    modal.classList.add('active');
+}
+
+function playVideo(videoId) {
+    const video = videos[videoId];
+    if (!video) return;
+    
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    
+    modalVideo.src = video.src;
+    modal.classList.add('active');
+    modalVideo.play();
+}
+
+function setupModalControls() {
+    const imageModal = document.getElementById('imageModal');
+    const videoModal = document.getElementById('videoModal');
+    const modalCloseBtns = document.querySelectorAll('.modal-close');
+    
+    // Close buttons
+    modalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', closeModals);
+    });
+    
+    // Click outside to close
+    window.addEventListener('click', (e) => {
+        if (e.target === imageModal || e.target === videoModal) {
+            closeModals();
+        }
+    });
+    
+    // Zoom controls
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const resetZoomBtn = document.getElementById('resetZoom');
+    
+    if (zoomInBtn) {
+        zoomInBtn.addEventListener('click', () => {
+            currentZoom += 0.2;
+            if (currentZoom > 3) currentZoom = 3;
+            document.getElementById('modalImage').style.transform = `scale(${currentZoom})`;
+        });
+    }
+    
+    if (zoomOutBtn) {
+        zoomOutBtn.addEventListener('click', () => {
+            currentZoom -= 0.2;
+            if (currentZoom < 0.5) currentZoom = 0.5;
+            document.getElementById('modalImage').style.transform = `scale(${currentZoom})`;
+        });
+    }
+    
+    if (resetZoomBtn) {
+        resetZoomBtn.addEventListener('click', () => {
+            currentZoom = 1;
+            document.getElementById('modalImage').style.transform = `scale(${currentZoom})`;
+        });
+    }
+    
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModals();
+        }
+    });
+}
+
+function closeModals() {
+    const imageModal = document.getElementById('imageModal');
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    
+    imageModal.classList.remove('active');
+    videoModal.classList.remove('active');
+    
+    // Stop video
+    if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+    }
+}
+
+// ==================== TURING MACHINE ====================
+
 let simulationSteps = [];
 let currentStepIndex = 0;
 let isLoading = false;

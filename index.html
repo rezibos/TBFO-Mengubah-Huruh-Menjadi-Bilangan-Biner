@@ -173,20 +173,238 @@
         <div class="container">
             <div class="header">
                 <h1>Diagram Mesin Turing</h1>
-                <p>Visualisasi diagram state Mesin Turing</p>
+                <p>Visualisasi diagram state dan tabel transisi Mesin Turing</p>
             </div>
+            
+            <!-- Diagram State -->
             <div class="card">
-                <div class="empty-page">
-                    <i class="fi fi-rr-diagram-project" style="font-size: 80px; color: #cbd5e0;"></i>
-                    <h3>Halaman Diagram</h3>
-                    <p>Konten diagram akan ditampilkan di sini</p>
+                <h2>📊 Diagram State Mesin Turing</h2>
+                <div class="media-full-container">
+                    <div class="media-full-item" onclick="viewDiagram('diagram1')">
+                        <img src="asset/mesin-turing/mesin-otomata.png" alt="Diagram Mesin Turing" class="media-full-img">
+                        <div class="media-overlay">
+                            <div class="media-info">
+                                <h3>Diagram State Mesin Turing</h3>
+                                <p class="media-desc">Visualisasi lengkap state transition untuk konversi huruf A-Z dan a-z ke format biner 8-bit</p>
+                                <span class="media-action">
+                                    <i class="fi fi-rr-search-plus"></i> Klik untuk Perbesar
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Penjelasan -->
+            <div class="card">
+                <h2>🎥 Video Penjelasan</h2>
+                <div class="media-full-container">
+                    <div class="media-full-item video-item-full" onclick="playVideo('video1')">
+                        <!-- Ganti icon dengan image thumbnail -->
+                        <div class="video-placeholder" style="background: url('asset/video-mesin-turing/thumnale.png') center/cover;">
+                            <div style="     width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fi fi-ss-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="media-overlay">
+                            <div class="media-info">
+                                <h3>Tutorial Mesin Turing</h3>
+                                <p class="media-desc">Penjelasan lengkap tentang konsep Mesin Turing, cara kerja algoritma konversi, dan step-by-step proses</p>
+                                <span class="media-action">
+                                    <i class="fi fi-rr-play"></i> Klik untuk Memutar
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabel Transisi -->
+            <div class="card">
+                <h2>📋 Tabel Transisi Mesin Turing</h2>
+                
+                <!-- Transisi untuk Huruf Besar -->
+                <div class="transition-section">
+                    <h3>Transisi untuk Huruf Besar (A-Z)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Input</th>
+                                    <th>Output</th>
+                                    <th>Next State</th>
+                                    <th>Move</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>q0</td>
+                                    <td>A-Z</td>
+                                    <td>-</td>
+                                    <td>q1</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q1</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q2</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q2</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q3</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q3</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q4</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q4</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q5</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q5</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q6</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q6</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q7</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q7</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>qf</td>
+                                    <td>HALT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Transisi untuk Huruf Kecil -->
+                <div class="transition-section" style="margin-top: 30px;">
+                    <h3>Transisi untuk Huruf Kecil (a-z)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Input</th>
+                                    <th>Output</th>
+                                    <th>Next State</th>
+                                    <th>Move</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>q0</td>
+                                    <td>a-z</td>
+                                    <td>-</td>
+                                    <td>q1</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q1</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q2</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q2</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q3</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q3</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q4</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q4</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q5</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q5</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q6</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q6</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>q7</td>
+                                    <td>R</td>
+                                </tr>
+                                <tr>
+                                    <td>q7</td>
+                                    <td>-</td>
+                                    <td>0/1</td>
+                                    <td>qf</td>
+                                    <td>HALT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Page: Diagram -->
     
-        <!-- Page: Kelompok -->
+    <!-- Image Modal untuk Diagram -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content-image">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" src="" alt="Preview">
+            <div class="modal-controls">
+                <button id="zoomIn" class="btn-icon"><i class="fi fi-rr-search-plus"></i></button>
+                <button id="zoomOut" class="btn-icon"><i class="fi fi-rr-search-minus"></i></button>
+                <button id="resetZoom" class="btn-icon"><i class="fi fi-rr-refresh"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content-video">
+            <span class="modal-close">&times;</span>
+            <video id="modalVideo" controls>
+                <source src="" type="video/mp4">
+                Browser Anda tidak mendukung video.
+            </video>
+        </div>
+    </div>
+    <!-- End Page: Diagram -->
+    
+    <!-- Page: Kelompok -->
     <div class="page-content" id="page-kelompok">
         <div class="container">
             <div class="header">
@@ -214,11 +432,11 @@
                     <!-- Ketua Kelompok (Tengah) -->
                     <div class="team-member-full leader">
                         <img class="photo-main" src="asset/ava-irl/irlrezi.jpeg" alt="Fachrezi Bachri">
-                        <img class="photo-hover" src="asset/ava-roblox/avarobloxrezi.jpeg" alt="Fachrezi Bachri 2">
+                        <img class="photo-hover" src="asset/ava-roblox/avarobloxrezi.png" alt="Fachrezi Bachri 2">
                         <div class="member-overlay">
                             <div class="member-info">
                                 <div class="leader-badge">★ Ketua Kelompok ★</div>
-                                <h3>FACHREZI BACHRI</h3>
+                                <h3>Fachrezi Bachri</h3>
                                 <p class="member-nim">2401020010</p>
                             </div>
                         </div>

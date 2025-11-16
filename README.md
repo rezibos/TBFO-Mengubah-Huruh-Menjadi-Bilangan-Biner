@@ -208,7 +208,7 @@ PORT = 8080  # Ganti dengan port lain
 Proyek ini dibuat untuk keperluan pembelajaran Teori Komputasi - Mesin Turing.
 
 ### Ketua Kelompok
-- FACHREZI BACHRI (2401020010)
+- Fachrezi Bachri (2401020010)
 
 ### Anggota Kelompok
 - Muhammad Faiz (2401020040)

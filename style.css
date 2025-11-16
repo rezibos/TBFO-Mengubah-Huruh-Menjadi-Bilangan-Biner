@@ -1218,3 +1218,387 @@ td:last-child {
         font-size: 0.9rem;
     }
 }
+
+/* Media Full Container - Style seperti Team Member */
+.media-full-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.media-full-item {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid #e2e8f0;
+}
+
+.media-full-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+    border-color: #3b82f6;
+}
+
+/* Image Full */
+.media-full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+    background: white;
+    padding: 20px;
+}
+
+.media-full-item:hover .media-full-img {
+    transform: scale(1.05);
+}
+
+/* Video Placeholder */
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.video-placeholder i {
+    font-size: 120px;
+    color: white;
+    opacity: 0.9;
+}
+
+.media-full-item:hover .video-placeholder {
+    transform: scale(1.05);
+}
+
+.media-full-item:hover .video-placeholder i {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* Media Overlay - Muncul saat Hover */
+.media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 70%, transparent 100%);
+    padding: 40px 30px 30px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 10;
+}
+
+.media-full-item:hover .media-overlay {
+    transform: translateY(0);
+}
+
+/* Media Info */
+.media-info {
+    text-align: center;
+    color: white;
+}
+
+.media-info h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.media-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e7ff;
+    margin: 0 0 20px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.media-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.media-action i {
+    font-size: 1.2rem;
+}
+
+/* Transition Section */
+.transition-section {
+    margin-top: 20px;
+}
+
+.transition-section h3 {
+    color: #1e3a8a;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3b82f6;
+}
+
+/* Upload Controls */
+.upload-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.upload-controls input[type="file"] {
+    cursor: pointer;
+}
+
+/* Media Section */
+.media-section {
+    margin-bottom: 20px;
+}
+
+.media-section h3 {
+    color: #1e3a8a;
+    font-size: 1.2rem;
+}
+
+/* Image Preview in Table */
+.img-preview {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #e2e8f0;
+}
+
+.img-preview:hover {
+    transform: scale(1.1);
+    border-color: #3b82f6;
+}
+
+/* Video Preview in Table */
+.video-preview {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #e2e8f0;
+}
+
+.video-preview:hover {
+    transform: scale(1.05);
+    border-color: #3b82f6;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Modal Content */
+.modal-content-image {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-content-image img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Video Modal Content */
+.modal-content-video {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-content-video video {
+    width: 100%;
+    max-height: 80vh;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 1001;
+}
+
+.modal-close:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+/* Modal Controls */
+.modal-controls {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.btn-icon {
+    background: white;
+    color: #3b82f6;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    line-height: 1;
+}
+
+.btn-icon:hover {
+    background: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Action Buttons in Table */
+.btn-view {
+    background: #3b82f6;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-view:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Zoom Animation */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content-image,
+    .modal-content-video {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .modal-controls {
+        bottom: -50px;
+        gap: 8px;
+        padding: 8px 12px;
+    }
+    
+    .btn-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .modal-close {
+        font-size: 35px;
+        top: -35px;
+    }
+    
+    .img-preview {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Additional utility classes */
